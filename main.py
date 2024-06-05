@@ -56,10 +56,8 @@ class ChatbotGUI:
         self.screen = pygame.display.set_mode((1600, 1200))
         pygame.display.set_caption('Greed Chatbot')
 
-
         icon = pygame.image.load('pc_icon.png')
         pygame.display.set_icon(icon)
-
 
         self.BACKGROUND_COLOR = (255, 255, 255)  
         self.TEXT_COLOR = (0, 0, 0)  
@@ -68,26 +66,14 @@ class ChatbotGUI:
         self.BUTTON_TEXT_COLOR = (0, 0, 0) 
         self.CHAT_WINDOW_COLOR = (204, 255, 204)
         self.INPUT_BOX_COLOR = (255, 255, 255) 
-
-
         self.font = pygame.font.Font(None, 24) 
         self.title_font = pygame.font.Font(None, 34) 
-
         self.input_rect = pygame.Rect(10, 820, 1400, 60)
         self.input_text = ''
-
         self.chat_history = []
-
-
         self.bot_response = ''
-
-
         self.send_button_rect = pygame.Rect(1450, 820, 140, 60)
-
-
         self.chat_window_rect = pygame.Rect(10, 10, 1580, 800)
-
-
         self.chatbot = SimpleChatbot(openai_api_key)
 
 
@@ -143,11 +129,8 @@ class ChatbotGUI:
 
             pygame.draw.rect(self.screen, self.CHAT_WINDOW_COLOR, self.chat_window_rect)
             pygame.draw.rect(self.screen, self.BORDER_COLOR, self.chat_window_rect, 2)
-
             pygame.draw.rect(self.screen, self.INPUT_BOX_COLOR, self.input_rect)
             pygame.draw.rect(self.screen, self.BORDER_COLOR, self.input_rect, 2)
-
-
             pygame.draw.rect(self.screen, self.BORDER_COLOR, self.send_button_rect, 2)
 
             y_offset = 60  
@@ -156,16 +139,11 @@ class ChatbotGUI:
 
 
             self.draw_text("Greed Chatbot", self.title_font, self.TEXT_COLOR, self.screen, 20, 20, self.chat_window_rect.width - 40)
-
-
             self.draw_text(self.input_text + '|', self.font, self.TEXT_COLOR, self.screen, self.input_rect.x + 5, self.input_rect.y + 5, self.input_rect.width - 10)
-
             pygame.draw.rect(self.screen, self.BUTTON_COLOR, self.send_button_rect)
             self.draw_text("Send", self.font, self.BUTTON_TEXT_COLOR, self.screen, self.send_button_rect.x + 50, self.send_button_rect.y + 20, self.send_button_rect.width - 40)
 
-
             pygame.display.flip()
-
         pygame.quit()
 
 
@@ -173,7 +151,7 @@ if __name__ == "__main__":
     try:
 
         print("Initializing Chatbot GUI...")
-        openai_api_key = "sk-proj-Rfdr3RddodClMmzzR2UpT3BlbkFJ7tuTtPemdleXiPxg2zMH"  
+        openai_api_key = "API-KEY"  #Inserisci qui l'API-KEY di OpenAI
         chatbot_gui = ChatbotGUI(openai_api_key)
         print("Starting Chatbot GUI...")
         chatbot_gui.start()
